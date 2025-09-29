@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres-bankingdb
+    restart: always
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: bankingdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - banking-net
+
+  ms-clientes:
+    build:
+      context: ./ms-clientes
+      dockerfile: Dockerfile
+    image: ms-clientes:1.0
+    container_name: ms-clientes
+    depends_on:
+      - postgres
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/bankingdb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    networks:
+      - banking-net
+
+  ms-cuentas-movimientos:
+    build:
+      context: ./ms-cuentas-movimientos
+      dockerfile: Dockerfile
+    image: ms-cuentas-movimientos:1.0
+    container_name: ms-cuentas
+    depends_on:
+      - postgres
+    ports:
+      - "8082:8082"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/bankingdb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    networks:
+      - banking-net
+
+volumes:
+  pgdata:
+
+networks:
+  banking-net:
+    driver: bridge

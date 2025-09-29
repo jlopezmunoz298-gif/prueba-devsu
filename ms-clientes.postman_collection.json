@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "09d6fdc4-8951-4bc4-b586-89669063dbf9",
+		"name": "ms-clientes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36639157"
+	},
+	"item": [
+		{
+			"name": "Crear Cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Juan Pérez Gómez\",\r\n  \"genero\": \"M\",\r\n  \"edad\": 31,\r\n  \"identificacion\": \"51824578\",\r\n  \"direccion\": \"Carrera 45 #10-20\",\r\n  \"telefono\": \"3009876543\",\r\n  \"contrasenia\": \"claveActualizada456\",\r\n  \"estado\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Cliente",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Juan Pérez\",\r\n  \"genero\": \"M\",\r\n  \"edad\": 30,\r\n  \"identificacion\": \"123456789\",\r\n  \"direccion\": \"Calle 123\",\r\n  \"telefono\": \"3001234567\",\r\n  \"contrasenia\": \"claveSegura123\",\r\n  \"estado\": true\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/clientes/987654321",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"clientes",
+						"987654321"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Clientes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Juan Pérez\",\r\n  \"genero\": \"M\",\r\n  \"edad\": 30,\r\n  \"identificacion\": \"123456789\",\r\n  \"direccion\": \"Calle 123\",\r\n  \"telefono\": \"3001234567\",\r\n  \"contrasenia\": \"claveSegura123\",\r\n  \"estado\": true\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Cliente",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Juan Pérez Gómez\",\r\n  \"genero\": \"M\",\r\n  \"edad\": 31,\r\n  \"identificacion\": \"123456789\",\r\n  \"direccion\": \"Carrera 45 #10-20\",\r\n  \"telefono\": \"3009876543\",\r\n  \"contrasenia\": \"claveActualizada456\",\r\n  \"estado\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/clientes/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"clientes",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Cliente",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nombre\": \"Juan Pérez Gómez\",\r\n  \"genero\": \"M\",\r\n  \"edad\": 31,\r\n  \"identificacion\": \"123456789\",\r\n  \"direccion\": \"Carrera 45 #10-20\",\r\n  \"telefono\": \"3009876543\",\r\n  \"contrasenia\": \"claveActualizada456\",\r\n  \"estado\": true\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/clientes/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"clientes",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Cliente Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/clientes/id/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"clientes",
+						"id",
+						"8"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
